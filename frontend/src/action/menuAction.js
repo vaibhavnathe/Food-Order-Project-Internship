@@ -5,7 +5,7 @@ export const getMenus = (id) => async(dispatch) => {
     
         try {
             dispatch({type : GET_MENU_REQUEST});
-            const response = await axios.get(`/api/v1/eats/stores/${id}/menus`);
+            const response = await axios.get(`http://localhost:4000/api/v1/eats/stores/${id}/menus`);
             console.log(response.data.data[0].menu);
             
             dispatch({
