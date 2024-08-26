@@ -14,6 +14,7 @@ export default function Menu() {
   const {menus, loading, error} = useSelector((state) => state.menus);
 
   useEffect(() => {
+    console.log("Fetching menus for store ID:", id); // Add this line
     dispatch(getMenus(id));
   }, [dispatch,id])
     
@@ -25,7 +26,7 @@ export default function Menu() {
                                       (<Message variant={"danger"}>{error}</Message>) 
                                       : (
                                         menus && menus.length > 0 ? (
-                                          menus.map((menu) => {
+                                          menus.map((menu) => (
                                             
                                             <div key={menu._id}>
                                               
@@ -41,7 +42,7 @@ export default function Menu() {
                                                 ) : (<Message variant={"info"}>No FoodItem Found</Message>)
                                               }
                                             </div>
-                                          })
+                                          ))
                                         ) : (<Message variant={"info"}>No Menus Found</Message>)
                                       ))
       }
