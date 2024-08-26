@@ -11,11 +11,12 @@ import Login from "./components/users/Login";
 import store from './store'
 import { loadUser } from "./action/userAction";
 import Profile from './components/users/Profile'
+import UpdateProfile from "./components/users/UpdateProfile";
 
 export default function App() {
 
   // dipatched exactly once when the component is first rendered , and check if user is authenticated or not
-  console.log(store);
+  // console.log(store);
 
   useEffect(() => {
     store.dispatch(loadUser());
@@ -35,6 +36,7 @@ export default function App() {
             <Route path="/users/signup" element={<Register/>} />
             <Route path="/users/login" element={<Login/>} />
             <Route path="/users/me" element={<Profile/>} />
+            <Route path="/users/me/update" element={<UpdateProfile/>} />
 
           </Routes>
         </div>
