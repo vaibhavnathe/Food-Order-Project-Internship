@@ -76,7 +76,7 @@ export const authReducer = (
             };
 
         default:
-            break;
+            return state;
 
     }
 };
