@@ -10,6 +10,7 @@ import Register from '../src/components/users/Register'
 import Login from "./components/users/Login";
 import store from './store'
 import { loadUser } from "./action/userAction";
+import Profile from './components/users/Profile'
 
 export default function App() {
 
@@ -33,6 +34,7 @@ export default function App() {
             <Route path="/eats/stores/:id/menus" element={<Menu/>}/>
             <Route path="/users/signup" element={<Register/>} />
             <Route path="/users/login" element={<Login/>} />
+            <Route path="/users/me" element={<Profile/>} />
 
           </Routes>
         </div>
