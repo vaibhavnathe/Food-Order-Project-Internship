@@ -4,7 +4,6 @@ import Header from "./components/layouts/Header";
 import Home from "./components/layouts/Home";
 import Footer from "./components/layouts/Footer";
 import Menu from "./components/layouts/Menu";
-import Cart from "./components/cart/Cart";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Register from '../src/components/users/Register'
 import Login from "./components/users/Login";
@@ -12,6 +11,8 @@ import store from './store'
 import { loadUser } from "./action/userAction";
 import Profile from './components/users/Profile'
 import UpdateProfile from "./components/users/UpdateProfile";
+import ForgotPassword from '../src/components/users/ForgotPassword'
+import NewPassword from '../src/components/users/NewPassword'
 
 export default function App() {
 
@@ -37,6 +38,8 @@ export default function App() {
             <Route path="/users/login" element={<Login/>} />
             <Route path="/users/me" element={<Profile/>} />
             <Route path="/users/me/update" element={<UpdateProfile/>} />
+            <Route path="/users/forgotPassword" element={<ForgotPassword/>} />
+            <Route path="/users/resetPassword/:token" element={<NewPassword/>} />
 
           </Routes>
         </div>
