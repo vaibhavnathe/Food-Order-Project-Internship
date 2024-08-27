@@ -8,7 +8,7 @@ import {legacy_createStore as createStore,
 import thunk from 'redux-thunk';        // helps to run the data fetching (delayed work)
 import { restaurantReducer } from './reducer/restaurantReducer';
 import { menuReducer } from './reducer/menuReducer';
-import { authReducer } from './reducer/userReducer';
+import { authReducer, forgotPasswordReducer, userReducer } from './reducer/userReducer';
 
 // create store -> just like array or object
 // combineReducers -> to group the reducer
@@ -19,6 +19,8 @@ const reducer = combineReducers({
     restaurants : restaurantReducer,
     menus : menuReducer,
     auth : authReducer,
+    user: userReducer,
+    forgotPassword: forgotPasswordReducer
 });
 
 // helps us to connect the reactDevTools 
