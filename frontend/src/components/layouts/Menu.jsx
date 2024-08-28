@@ -14,9 +14,9 @@ export default function Menu() {
   const {menus, loading, error} = useSelector((state) => state.menus);
 
   useEffect(() => {
-    console.log("Fetching menus for store ID:", id); // Add this line
+    // console.log("Fetching menus for store ID:", id); // Add this line
     dispatch(getMenus(id));
-  }, [dispatch,id])
+  }, [dispatch,id]);
     
   return (
     <div>
