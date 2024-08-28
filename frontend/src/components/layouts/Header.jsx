@@ -11,6 +11,7 @@ const Header = () => {
     const dispatch = useDispatch();
 
     const { user, loading } = useSelector((state) => state.auth);
+    const { cartItems } = useSelector((state) => state.cart);
 
     const logoutHandler = () => {
         dispatch(logout());
@@ -35,12 +36,15 @@ const Header = () => {
 
             {/* Cart with cart no. */}
             <div className="col-12 col-md-3 mt-4 mt-md-0">
-                <span className="ml-3" id="cart">
-                    Cart
-                </span>
-                <span className="ml-1" id='cart_count'>
-                    0
-                </span>
+                <Link to={"/cart"} style={{ textDecoration: "none" }}>
+                    <span className="ml-3" id="cart">
+                        Cart
+                    </span>
+                    <span className="ml-1" id='cart_count'>
+                        {cartItems.length}
+                    </span>
+                </Link>
+
 
                 {
                     user ? (
@@ -62,24 +66,24 @@ const Header = () => {
                                     </span>
                                 </Link>
 
-                                <div className="dropdown-menu" 
+                                <div className="dropdown-menu"
                                     aria-labelledby='dropDownMenuButton'
                                 >
-                                    <Link className='dropdown-item' 
+                                    <Link className='dropdown-item'
                                         to='/eats/orders/me/myOrders'>
-                                            Orders
+                                        Orders
                                     </Link>
 
-                                    <Link className='dropdown-item' 
+                                    <Link className='dropdown-item'
                                         to='/users/me'>
-                                            Profile
+                                        Profile
                                     </Link>
 
-                                    <Link className='dropdown-item' 
-                                            to='/'
-                                            onClick={logoutHandler}
+                                    <Link className='dropdown-item'
+                                        to='/'
+                                        onClick={logoutHandler}
                                     >
-                                            Logout
+                                        Logout
                                     </Link>
                                 </div>
 
@@ -88,7 +92,7 @@ const Header = () => {
                     )
                         : (
                             !loading && (
-                            
+
                                 <Link to='/users/login' className="btn ml-4" id="login_btn">
                                     Login
                                 </Link>
