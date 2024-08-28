@@ -9,6 +9,7 @@ import thunk from 'redux-thunk';        // helps to run the data fetching (delay
 import { restaurantReducer } from './reducer/restaurantReducer';
 import { menuReducer } from './reducer/menuReducer';
 import { authReducer, forgotPasswordReducer, userReducer } from './reducer/userReducer';
+import { cartReducer } from './reducer/cartReducer';
 
 // create store -> just like array or object
 // combineReducers -> to group the reducer
@@ -20,7 +21,8 @@ const reducer = combineReducers({
     menus : menuReducer,
     auth : authReducer,
     user: userReducer,
-    forgotPassword: forgotPasswordReducer
+    forgotPassword: forgotPasswordReducer,
+    cart: cartReducer
 });
 
 // helps us to connect the reactDevTools 
