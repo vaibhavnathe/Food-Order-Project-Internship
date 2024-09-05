@@ -13,15 +13,28 @@ import Profile from './components/users/Profile'
 import UpdateProfile from "./components/users/UpdateProfile";
 import ForgotPassword from '../src/components/users/ForgotPassword'
 import NewPassword from '../src/components/users/NewPassword'
+import Cart from "./components/cart/Cart";
+import OrderSuccess from './components/cart/OrderSuccess'
+import ListOrders from './components/order/ListOrders'
+import OrderDetails from './components/order/OrderDetails'
+
+// import { useDispatch, useSelector } from "react-redux";
+// import { fetchCartItems } from "./action/cartAction";
 
 export default function App() {
 
   // dipatched exactly once when the component is first rendered , and check if user is authenticated or not
   // console.log(store);
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     store.dispatch(loadUser());
   },[])
+
+  // const {user} = useSelector((state) => state.auth);
+  // if(user){
+  //   dispatch(fetchCartItems());
+  // }
 
   return (
     <BrowserRouter>
@@ -40,6 +53,12 @@ export default function App() {
             <Route path="/users/me/update" element={<UpdateProfile/>} />
             <Route path="/users/forgotPassword" element={<ForgotPassword/>} />
             <Route path="/users/resetPassword/:token" element={<NewPassword/>} />
+            <Route path="/cart" element={<Cart/>} />
+
+            <Route path="/success" element={<OrderSuccess/>} />
+            <Route path="/eats/orders/me/myOrders" element={<ListOrders/>} />
+            <Route path="/eats/orders/:id" element={<OrderDetails/>} />
+            <Route path="*" element={<h1>The Page does not exist</h1>} />
 
           </Routes>
         </div>
